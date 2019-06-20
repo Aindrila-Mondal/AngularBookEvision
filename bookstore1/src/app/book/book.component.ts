@@ -24,6 +24,7 @@ export class BookComponent implements OnInit {
 deleteBookById(id: number) {
   console.log(" ##### Delete "+ id);
 
+  if(confirm("Do You Want To delete")){
   this.bookService.deleteBookById(id)
     .subscribe(
     data => {
@@ -31,6 +32,7 @@ deleteBookById(id: number) {
       this.reloadData();
     },
     error => console.log(error));
+  }
 }
   reloadData() {
     location.reload(true);
